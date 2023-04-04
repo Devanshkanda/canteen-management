@@ -1,0 +1,131 @@
+{% extends 'index.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+
+<div class="home-body">
+    <div class="Inside-home-border-body">
+
+        <div class="home-heading1">
+            <h1>For The Love Of</h1>
+        </div>
+
+        <div class="home-heading2">
+            <h1>Delicious Food</h1>
+        </div>
+
+        <div class="home-subhead">
+            <h2>Quick eats for busy people</h2>
+        </div>
+
+
+        <!-- img slider start -->
+        <div class="img-slider">
+            <div class="slide active">
+              <img src="/static/homepagecaruselimages/momos.avif" alt="">
+              <!-- <div class="info">
+                <h2>Slide 01</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div> -->
+            </div>
+            <div class="slide">
+              <img src="/static/homepagecaruselimages/pavbhaji.avif" alt="">
+            </div>
+            <div class="slide">
+              <img src="/static/homepagecaruselimages/samosa.avif" alt="">
+            </div>
+            <div class="slide">
+              <img src="/static/homepagecaruselimages/rajmachawal.avif" alt="">
+            </div>
+            <div class="slide">
+              <img src="/static/homepagecaruselimages/sandwich.avif" alt="">
+            </div>
+            <div class="navigation">
+              <div class="btn active"></div>
+              <div class="btn"></div>
+              <div class="btn"></div>
+              <div class="btn"></div>
+              <div class="btn"></div>
+            </div>
+          </div>
+        <!-- img slider end -->
+
+
+
+       
+    </div>
+
+</div>
+
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block script %}
+<script>
+    var slides = document.querySelectorAll('.slide');
+    var btns = document.querySelectorAll('.btn');
+    let currentSlide = 1;
+
+    // Javascript for image slider manual navigation
+    var manualNav = function(manual){
+      slides.forEach((slide) => {
+        slide.classList.remove('active');
+
+        btns.forEach((btn) => {
+          btn.classList.remove('active');
+        });
+      });
+
+      slides[manual].classList.add('active');
+      btns[manual].classList.add('active');
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        manualNav(i);
+        currentSlide = i;
+      });
+    });
+
+    // Javascript for image slider autoplay navigation
+    var repeat = function(activeClass){
+      let active = document.getElementsByClassName('active');
+      let i = 1;
+
+      var repeater = () => {
+        setTimeout(function(){
+          [...active].forEach((activeSlide) => {
+            activeSlide.classList.remove('active');
+          });
+
+        slides[i].classList.add('active');
+        btns[i].classList.add('active');
+        i++;
+
+        if(slides.length == i){
+          i = 0;
+        }
+        if(i >= slides.length){
+          return;
+        }
+        repeater();
+      }, 10000);
+      }
+      repeater();
+    }
+    repeat();
+</script>
+
+{% endblock script %}

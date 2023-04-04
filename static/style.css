@@ -1,0 +1,5 @@
+/* common css  */
+
+.home-body .about-body{
+    min-height: calc(100vh - 58px - 30px);
+}

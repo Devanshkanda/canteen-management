@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Canteen management | {% block title %}{% endblock title %}</title>
+        {% load static %}
+        <link rel="stylesheet" href="/static/style.css">
+        <link rel="stylesheet" href="/static/home.css">
+        <link rel="stylesheet" href="/static/contact.css">
+        <link rel="stylesheet" href="/static/header.css">
+        <link rel="stylesheet" href="/static/footer.css">
+    </head>
+<body>
+    
+    <header>
+        <nav>
+                <div class="logo-header">
+                    <h4>logo</h4>
+                </div>
+                <div class="search-bar">
+                    <input class="bar" type="text">
+                </div>
+                <ul>
+                   <li><a href="/" class="link">home </a> </li>
+                    <li><a href="/contact"class="link">Contact Us</a></li>
+                    <li>Restaurants</li>
+                    <li>MyCart</li>
+                </ul>
+                    <div class="signup-btn">
+                        <input type="submit" value="SignUp">
+                    </div>
+                 <div class="login-btn">
+                    <input type="submit" value="Login">
+                 </div>
+
+    
+        </nav>
+    </header>
+    {% block body %} 
+    {% endblock body %}
+
+    <footer>
+            <div class="container">
+                <p>Copyright &copy DHL Creations</p>
+            </div>
+    </footer>
+
+</body>
+
+    {% block script %}
+    {% endblock script %}
+</html>
