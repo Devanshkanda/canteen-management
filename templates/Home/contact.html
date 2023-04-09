@@ -4,9 +4,70 @@
 
 {% block body %}
 
-<div class="about-body">
+<div class="contact-body">
     <div class="Inside-contact-border-body">
-        This is contact
+        <div class="head">
+            <h1 class="title">Contact Us</h1>
+            <h3>Any queries or remarks?</h3>
+            <h3>Reach out to us! <a href="#contact-form"><i class="uil uil-angle-double-down icon"></i></a></h3>
+          </div>
+      
+          <hr class="first">
+      
+          <div class="contact-info">
+            <div class="contact-boxes">
+              <span><i class="uil uil-phone-volume"></i></span>
+              <span class="contact-text">Phone No.</span>
+              <span class="text">0123456789</span>
+            </div>
+            <div class="contact-boxes">
+              <span><i class="uil uil-envelope-edit"></i></span>
+              <span class="contact-text">E-mail</span>
+              <span class="text">xyz@iitm.com</span>
+            </div>
+            <div class="contact-boxes">
+              <span><i class="uil uil-location-pin-alt"></i></span>
+              <span class="contact-text">Address</span>
+              <span class="text">D-27 & 28 Institutional Area, Janakpuri, New Delhi, Delhi 110058</span>
+            </div>
+            <div class="contact-boxes">
+              <span><i class="uil uil-key-skeleton"></i></span>
+              <span class="contact-text">Opening Hours</span>
+              <span class="text">Monday - Saturday (8:00 AM to 5:00 PM)</span>
+            </div>
+          </div>
+      
+          <hr class="second">
+      
+          <div id="contact-form"  class="contact-form">
+            <div class="form">
+              <form method="POST" action="">
+                {% csrf_token %}
+
+                <div>
+                  <input id="firstname" name="firstname" type="text" class="form-control" placeholder="First Name"> 
+                  <input id="lastname" name="lastname" type="text" class="form-control" placeholder="Last Name">
+                </div>
+                <div>
+                  <input id="email" name="email" type="email" class="form-control" placeholder="E-mail">
+                  <input id="phone" name="phone" type="text" class="form-control" placeholder="Phone">
+                </div>
+                <textarea id="message" name="message" rows="5" placeholder="Message" class="form-control"></textarea>
+                <div class="send">
+                  <input type="submit" class="send-btn" value="Send">
+                </div>
+              </form>
+              
+            </div>
+      
+            <div>
+              <img src="/static/contactPageimages/contact-image.webp" alt="">
+            </div>
+  
+           <!-- <div class="map">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.6466002692264!2d77.09968471455915!3d28.610376891835305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1ba9daf6eb2f%3A0x82faa5622cd1bfe3!2sIITM%20Janakpuri%20Delhi%20%7C%20Institute%20of%20Innovation%20in%20Technology%20%26%20Management%20(IITM)!5e0!3m2!1sen!2sin!4v1680507067916!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div> -->
+        </section>
     </div>
 
 </div>

@@ -1,7 +1,124 @@
-.Inside-contact-border-body{
-    height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Montserrat:wght@400;500;600&family=Roboto+Slab&display=swap');
+
+
+  .Inside-contact-border-body{
+    background-color: #E4E9FD;
+    background-image: -webkit-linear-gradient(65deg, #f7328e 50%, #fde4fc 50%);
+    font-family: 'helvetica neue';
+    background-size: 100% 100%;
+    height: 170vh;
     width: 1080px;
     margin: 10px auto;
     border: 2px solid black;
     border-radius: 20px;
+}
+
+.first {
+    width: 35%;
+    border-style: none;
+    border-top-style: dotted;
+    border-color: #f7328e;
+    border-width: 5px;
+}
+.second
+ {
+    width: 35%;
+    border-style: none;
+    border-top-style: dotted;
+    border-color: #fde4fc;
+    border-width: 5px;
+}
+
+.icon {
+    color: #f7328e;
+}
+
+
+.head {
+    text-align: center;
+    color: #db0d6d;
+}
+
+.title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: bolder;
+    font-size: 4rem;
+}
+
+.head h3 {
+    font-size: 2rem;
+}
+
+.contact-info, .contact-form {
+    display: flex;
+    margin: 2rem 0;
+    text-align: center;
+    padding: 2rem 0;
+    justify-content: space-evenly;
+}
+.contact-info span {
+    display: block;
+}
+.contact-info div {
+    margin: 0.8rem 0;
+    padding: 1rem;
+}
+
+.contact-boxes {
+    width: 150px;
+    border: 5px solid rgb(221, 38, 130);
+    background-color: white;
+    border-radius: 12px;
+}
+
+.contact-boxes i {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    color: #f7328e;
+}
+
+.contact-text {
+    padding-top: 1rem;
+    font-size: larger;
+    font-weight: 700;
+    color: #6e1941;
+}
+
+.contact-form{
+    padding: 2rem 0;
+}
+.contact-form form{
+    padding-bottom: 1rem;
+}
+
+.form form div{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+}
+
+.form-control{
+    width: 100%;
+    border: 1.5px solid #E4E9FD;
+    border-radius: 5px;
+    padding: 0.7rem;
+    margin: 0.6rem 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    outline: 0;
+}
+
+.send {
+    align-items: center;
+}
+
+.send-btn{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #fff;
+    background-image: linear-gradient( #FF0099, #493240);
+    border: none;
+    border-radius: 5px;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
 }
