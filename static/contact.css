@@ -1,19 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Montserrat:wght@400;500;600&family=Roboto+Slab&display=swap');
 
 
-  .Inside-contact-border-body{
-    background-color: #E4E9FD;
-    background-image: -webkit-linear-gradient(65deg, #f7328e 50%, #fde4fc 50%);
-    font-family: 'helvetica neue';
-    background-size: 100% 100%;
-    height: 170vh;
-    width: 1080px;
-    margin: 10px auto;
-    border: 2px solid black;
-    border-radius: 20px;
-}
 .first{
-    margin: 0rem;
+    margin: 0rem auto;
     background-color: none;
     width: 35%;
     border-style: none;
@@ -23,7 +12,7 @@
     
 }
 .second{
-    margin: 0rem;
+    margin: 0rem auto;
     background-color: none;
     width: 35%;
     border-style: none;
@@ -69,6 +58,7 @@
 
 .contact-boxes {
     width: 150px;
+    height: 80px;
     border: 5px solid rgb(221, 38, 130);
     background-color: white;
     border-radius: 12px;

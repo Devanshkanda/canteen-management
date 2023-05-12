@@ -3,7 +3,9 @@
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
-.home-body .contact-body{
-    min-height: calc(100vh - 58px - 30px);
+body{
+    background-image: url('/static/bg.jpg');
+    background-size: cover;
 }
