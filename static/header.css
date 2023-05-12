@@ -1,68 +1,114 @@
 
- header{
-    color: white;
-    background-color: black;
-    border: 2px solid none;
-    position: sticky;
-    top: 5px;
-    width: 1240px;
-    margin: 10px auto;
-    /* background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 1px 12px rgba(0,0,0,0.25);
-    border: 1px solid rgba(255,255,255,0.3); */
-    border-radius: 20px;
-    z-index: 1;
-}
-
-.logo-header{
-    display: flex;
-    align-items: center;
-    margin: 0px 0px 0px 40px;
-}
-.search-bar{
-    display: flex;
-    align-items: center;
-    margin: 0px 0px 0px 115px;
-}
-.bar{
-    width: 325px;
-    height: 20px;
-}
-
-nav{
-    display: flex;
-    align-items: center;
-    height: 58px;
-}
-
-nav  ul{
-    display: flex;
-    align-items: center;
-    margin: 0px 0px 0px 75px;
-}
-
-nav  ul li{
-    padding: 0 10px;
+li{
     list-style: none;
-    font-weight: 600;
+}
+a{
+    text-decoration: none;
+    color:black;
+    font-size: 1rem;
 }
 
+a:hover{
+    color: aquamarine;
+}
 
+header{
+    position: relative;
+    padding: 0 2rem;
+}
 
-.login-btn,.signup-btn{
+.navbar{
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-}
-.signup-btn{
-    margin: 0px 0px 0px 70px;
+    justify-content: space-between;
 }
 
-.login-btn{
-    margin: 0px 0px 0px 20px;
+.navbar .logo .a{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.navbar .links{
+    display: flex;
+    gap: 2rem;
+}
+.navbar .toggle_btn{
+    color: black;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: none;
 }
 
-.link{
-    text-decoration: none;
+.login_btn .signup_btn{
+    background-color: black;
     color: white;
+    padding:0.5rem 1rem;
+    border:none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease
+}
+
+.login_btn:hover .signup_btn:hover{
+    scale: 1.05;
+}
+
+.login_btn:active .signup_btn:active{
+    scale: 0.95;
+}
+
+/* dropdown */
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    width: 300px;
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.dropdown_menu.open{
+    height: 280px;
+}
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown_menu .login_btn,
+.dropdown_menu .sign_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+/* responsive */
+@media(max-width: 992px){
+    .navbar .links,
+    .navbar .login_btn,
+    .navbar .signup_btn{
+        display: none;
+    }
+    .navbar .toggle_btn{
+       display: block; 
+    }
+    .dropdown_menu{
+       display: block; 
+    }
+}
+
+@media(max-width: 576px){
+ .dropdown_menu{
+    left: 2rem;
+    width: unset;
+ }
 }

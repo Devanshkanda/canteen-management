@@ -12,16 +12,19 @@
     border: 2px solid black;
     border-radius: 20px;
 }
-
-.first {
+.first{
+    margin: 0rem;
+    background-color: none;
     width: 35%;
     border-style: none;
     border-top-style: dotted;
     border-color: #f7328e;
     border-width: 5px;
+    
 }
-.second
- {
+.second{
+    margin: 0rem;
+    background-color: none;
     width: 35%;
     border-style: none;
     border-top-style: dotted;

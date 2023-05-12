@@ -1,5 +1,9 @@
 /* common css  */
-
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .home-body .contact-body{
     min-height: calc(100vh - 58px - 30px);
 }
