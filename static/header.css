@@ -15,15 +15,19 @@ a{
     font-weight: bolder;
 }
 
- a:hover{
-    color: aquamarine;
+.links a:hover,
+.dropdown_menu a:hover
+{
+    color: #ff511c;
 }
 
 header{
     position: relative;
     padding: 0 2rem;
     z-index: 1;
-    
+    width: 100%;
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
 }
 
 .navbar{
@@ -51,27 +55,20 @@ header{
     display: none;
 }
 
-.login_btn ,
-.sign_btn{
-    background-color: darkorange;
+.login_btn{
+    padding: 10px 23px;
+    background-color: #ff511c;
     color: white;
-    padding:0.5rem 1rem;
+    border-radius: 5px;
     border:none;
-    outline: none;
-    border-radius: 20px;
-    font-size: 1rem;
-    font-weight: bold;
     cursor: pointer;
-    transition: scale 0.2 ease
 }
-.btns .sign_btn{
-    margin: 0px 0px 0px 4px;
-}
-.login_btn:hover .signup_btn:hover{
+
+.login_btn:hover {
     scale: 1.05;
 }
 
-.login_btn:active .signup_btn:active{
+.login_btn:active{
     scale: 0.95;
 }
 
@@ -104,10 +101,58 @@ header{
     display: flex;
     justify-content: center;
 }
+
+
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color:  #ff511c;
+    color: black;
+    padding: 10px 23px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+
+
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  
+ 
+
 /* responsive */
 @media(max-width: 992px){
     .navbar .links,
-    .navbar .btns{
+    .navbar .btns,
+    .navbar .dropdown{
         display: none;
     }
     .navbar .toggle_btn{
@@ -124,3 +169,5 @@ header{
     width: unset;
  }
 }
+
+

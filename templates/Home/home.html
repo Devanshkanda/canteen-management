@@ -4,8 +4,46 @@
 
 {% block body %}
 
+<section class="grid">
+    <div class="content">
+        <div class="content-left">
+            <div class="info">
+                <h2>For The Love Of <br> Delicious Food</h2>
+                <p>Quick eats For busy people </p>
+            </div>
+            <button>Explore Food</button>
+        </div>
 
+        <div class="content-right">
+            <img src="/static/homepage/food_plate.png" alt="">
+        </div>
 
+    </div>
+</section>
+<section class="category">
+    <div class="list-items">
+        <h3>Popular Dishes</h3>
+        
+        <div class="card-list">
+            {% for cou in cous %}
+            <div class="card">
+                <img src="/media/{{cou.food_img}}" alt="">
+                <div class="food-title">
+                    <h1>{{cou.img_title}}</h1>
+                </div>
+                <div class="desc-food">
+                    <p>{{cou.food_desc}}</p>
+                </div>
+                <div class="price">
+                    <span><i class="fa-solid fa-circle-minus icon"></i></span> <span>&#8377 {{cou.item_price}}</span>
+                    <span><i class="fa-solid fa-circle-plus icon"></i></span>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+        
+    </div>
+</section>
 {% endblock body %}
 
 

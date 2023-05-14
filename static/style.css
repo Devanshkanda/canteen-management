@@ -5,6 +5,5 @@
     box-sizing: border-box;
 }
 body{
-    background-image: url('/static/bg.jpg');
-    background-size: cover;
+background-color: #ffeae0;
 }

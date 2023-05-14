@@ -7,7 +7,7 @@
     width: 35%;
     border-style: none;
     border-top-style: dotted;
-    border-color: #f7328e;
+    border-color:#ff511c;
     border-width: 5px;
     
 }
@@ -17,18 +17,18 @@
     width: 35%;
     border-style: none;
     border-top-style: dotted;
-    border-color: #fde4fc;
+    border-color:#ff511c;
     border-width: 5px;
 }
 
 .icon {
-    color: #f7328e;
+    color: #ff511c;
 }
 
 
 .head {
     text-align: center;
-    color: #db0d6d;
+    color: #ff511c;
 }
 
 .title {
@@ -59,7 +59,7 @@
 .contact-boxes {
     width: 150px;
     height: 160px;
-    border: 5px solid rgb(221, 38, 130);
+    border: 5px solid #ff511c;
     background-color: white;
     border-radius: 12px;
 }
@@ -67,14 +67,14 @@
 .contact-boxes i {
     font-size: 2rem;
     padding-bottom: 1rem;
-    color: #f7328e;
+    color: #ff511c;
 }
 
 .contact-text {
     padding-top: 1rem;
     font-size: larger;
     font-weight: 700;
-    color: #6e1941;
+    color:  #ac4603;
 }
 
 .contact-form{
@@ -109,7 +109,7 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     color: #fff;
-    background-image: linear-gradient( #FF0099, #493240);
+    background-image: linear-gradient( #ff511c, #ac4603);
     border: none;
     border-radius: 5px;
     padding: 0.7rem 1.5rem;

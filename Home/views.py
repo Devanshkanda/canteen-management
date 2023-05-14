@@ -1,13 +1,21 @@
 from django.shortcuts import render,HttpResponse,redirect
-from  .models import Contact
+from  .models import Contact,FamousItems
 import hashlib as hashh
 from django.contrib.auth  import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.models import User
+
 
 # Create your views here.
 def home(request):
     # return HttpResponse("harsh is here")
-    return render(request,'Home/home.html')
+    cou = FamousItems.objects.all()
+
+    data = {
+        'cous': cou
+    }
+
+    return render(request,'Home/home.html',data)
 
 def contact(request):
     if request.method == 'POST':
@@ -20,85 +28,71 @@ def contact(request):
         contact.save()
     return render(request,'Home/contact.html')
 
-def signup(request):
-    if request.method == 'POST':
-        try:
-            uname = str(request.POST['uname'])
-            email=str(request.POST['email'])
-            fname=str(request.POST['fname'])
-            lname=str(request.POST['lname'])
-            pass1=str(request.POST['pass1'])
-            pass2=str(request.POST['pass2'])
 
-            # check for errorneous input
-            if len(uname)<5:
-                messages.warning(request, " Your user name must not be under 10 characters")
-                return redirect('home')
 
-            if not uname.isalnum():
-                messages.warning(request, " User name should only contain letters and numbers")
-                return redirect('home')
 
-            if (pass1!= pass2):
-                messages.warning(request, " Passwords do not match")
-                return redirect('home')
 
-            if User.objects.filter(uname = uname).first():
-                messages.warning(request, "This Username is already taken")
-                return redirect('home')
+#authentication api's
 
-            if User.objects.filter(email = email).first():
-                messages.warning(request, "This Email is already taken")
-                return redirect('home')
+def SignUp(request):
+    if request.method=="POST":
+        # Get the post parameters
+       
+        fname=request.POST['fname']
+        lname=request.POST['lname']
+        username=request.POST['uname']
+        email=request.POST['email']
+        pass1=request.POST['pass1']
+        pass2=request.POST['pass2']
+        # check for errorneous input
+         # check for errorneous input
 
-            # adding salt to the password
-            salt = "this@#is&a3#salt" # random complex string
-            adding_salt_To_password = pass1+salt 
+        if not username.isalnum():
+            messages.warning(request, " User name should only contain letters and numbers")
+            return redirect('login')
 
-            # converting password into hashed digest
-            hashed_pass = hashh.md5(adding_salt_To_password.encode()).hexdigest()
+        if (pass1!= pass2):
+             messages.warning(request, " Passwords do not match")
+             return redirect('login')
 
-            # Create the user
-            myuser = User.objects.create_user(uname, email, hashed_pass)
-            myuser.first_name= fname
-            myuser.last_name= lname
-            myuser.save()
-            messages.success(request, " Your Account has been successfully created")
-            return redirect('home')
+        if User.objects.filter(username = username).first():
+            messages.warning(request, "This Username is already taken")
+            return redirect('login')
 
-        except Exception as e:
-            return HttpResponse("404 - Not found")
+        if User.objects.filter(email = email).first():
+            messages.warning(request, "This Email is already taken")
+            return redirect('login')
+        
+        # Create the user
+        myuser = User.objects.create_user(username, email, pass1)
+        myuser.first_name= fname
+        myuser.last_name= lname
+        myuser.save()
+        messages.success(request, " Your account has been successfully created")
+        return redirect('login')
+
+
 
 def Login(request):
+    if request.method=="POST":
+        # Get the post parameters
+        loginusername=request.POST['loginusername']
+        loginpassword=request.POST['loginpassword']
 
-    try:
-        if request.method=="POST":
-            # Get the post parameters
-            loginusername=str(request.POST['loginusername'])
-            loginpassword=str(request.POST['loginpassword'])
+        user=authenticate(username= loginusername, password= loginpassword)
+        if user is not None:
+            login(request, user)
+            messages.success(request, "Successfully Logged In")
+            return redirect("home")
+        else:
+            messages.error(request, "Invalid credentials! Please try again")
+            return redirect("login")
 
-            # adding salt to the password
-            salt = "this@#is&a3#salt" # random complex string
-            adding_salt_To_password = loginpassword+salt
-            
-            # converting password into hashed digest
-            hashed_pass = hashh.md5(adding_salt_To_password.encode()).hexdigest()
+    return render(request,'Home/login.html')
+   
 
-            # authenticating the user
-            user=authenticate(username= loginusername, password= hashed_pass)
-            print(user)
-            if user is not None:
-                login(request, user)
-                messages.success(request, "Successfully Logged In")
-                return redirect("home")
-            else:
-                messages.warning(request, "Invalid credentials! Please try again")
-                return redirect("home")
-            
-    except Exception as e:
-        return HttpResponse("404- Not found")
 
 def handelLogout(request):
     logout(request)
-    messages.success(request," Successfully logged out")
+    messages.success(request, "Successfully logged out")
     return redirect('home')

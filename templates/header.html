@@ -1,6 +1,6 @@
 <header>
     <div class="navbar">
-    <div class="logo"><a href="#" class="heading_text">Delicious Food</a></div>
+    <div class="logo"><a href="/" class="heading_text">Delicious Food</a></div>
 
     <ul class="links">
         <li><a href="/">Home</a></li>
@@ -10,10 +10,20 @@
         <li><a href="/contact">Contact</a></li>
 
     </ul>
+    {% if user.is_authenticated %}
+    <div class="dropdown">
+        <button class="dropbtn">Welcome! {{request.user}}</button>
+        <div class="dropdown-content">
+          <a href="/logout">Logout</a>
+
+        </div>
+      </div>
+      {% else %}
     <div class="btns">
-    <a href="#" class="login_btn">Login</a>
-    <a href="#" class="sign_btn">SignUp</a>
+    <a href="/login" class="login_btn">Login</a>
     </div>
+    {% endif %}
+    
     <div class="toggle_btn">
         <i class="fa-solid fa-bars"></i>
     </div>
@@ -26,8 +36,16 @@
         <li><a href="#">Order</a></li>
         <li><a href="#">Cart</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li><a href="#" class="login_btn">Login</a></li>
-        <li><a href="#" class="sign_btn">SignUp</a></li>
+        {% if user.is_authenticated %}
+        <li><div class="dropdown">
+            <button class="dropbtn">Welcome! {{request.user}}</button>
+            <div class="dropdown-content">
+              <a href="/logout">Logout</a>
+            </div>
+          </div></li>
+          {% else %}
+        <li><a href="/login" class="login_btn">Login</a></li>
+        {% endif %}
 </div>
 </header>
 
