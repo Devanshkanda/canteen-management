@@ -145,10 +145,11 @@ header{
     display: block;
   }
   
-  .searchfun{
+  .dropdown_menu .searchfun{
     display: flex;
-    align-items: center;
+    justify-content: center;
   }
+  /* search bar */
   .search {
     position: relative;
     width: 76px;

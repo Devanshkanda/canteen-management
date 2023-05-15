@@ -18,9 +18,9 @@ class Contact(models.Model):
     
 
 class FamousItems(models.Model):
-    img_title=models.CharField(max_length=20,default='Food')
+    img_title=models.CharField(max_length=20,default='')
     food_img = models.ImageField(upload_to='foodimg')
-    food_desc=models.CharField(max_length=100,default='Mouth watering')
+    food_desc=models.CharField(max_length=100,default='')
     item_price=models.IntegerField()
     
     def __str__(self):

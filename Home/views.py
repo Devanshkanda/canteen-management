@@ -30,7 +30,8 @@ def contact(request):
 
 
 
-
+def search(request):
+    return HttpResponse ('This is search')
 
 #authentication api's
 

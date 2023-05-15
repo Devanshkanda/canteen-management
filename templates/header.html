@@ -7,18 +7,18 @@
         <li><a href="#">Order</a></li>
         <li><a href="#">Cart</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li>
-          <form action="" class="search" id="search-bar">
-              <input type="search" placeholder="Type something..." name="q" class="search__input">
-  
-              <div class="search__button" id="search-button">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <i class="fa-solid fa-circle-xmark"></i>
-             
-            </div>
-          </form>
-        </li>
     </ul>
+    <div class="searchFun">
+      <form action="" class="search" id="search-bar">
+        <input type="search" placeholder="Type something..." name="q" class="search__input">
+
+        <div class="search__button" id="search-button">
+          <i class="fa-solid fa-magnifying-glass search__icon"></i>
+          <i class="fa-solid fa-circle-xmark search__close"></i>
+       
+      </div>
+    </form>
+    </div>
     {% if user.is_authenticated %}
     <div class="dropdown">
         <button class="dropbtn">Welcome! {{request.user}}</button>
