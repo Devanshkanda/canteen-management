@@ -1,5 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
-from  .models import Contact,FamousItems
+from  Home.models import Contact
+from  Stall.models import Product
 import hashlib as hashh
 from django.contrib.auth  import authenticate, login, logout
 from django.contrib import messages
@@ -8,11 +9,10 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 def home(request):
-    # return HttpResponse("harsh is here")
-    cou = FamousItems.objects.all()
+    products = Product.objects.all()
 
     data = {
-        'cous': cou
+        'products': products
     }
 
     return render(request,'Home/home.html',data)

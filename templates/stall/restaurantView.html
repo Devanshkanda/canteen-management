@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block title %}Stalls{% endblock title %}
+
+{% block body %}
+
+<div class="container">
+
+  <h1 class="heading">Stalls</h1>
+
+  <div class="box-container">
+
+    {% for stall in stalls  %}
+      <div class="box">
+          <img src="/media/{{stall.StallImg}}" alt="">
+          <h3>{{stall.canteenStallName}}</h3>
+          <p>{{stall.StallDesc}}</p>
+          <a href="#" class="btn">Order Here</a>
+      </div>
+      {% endfor %}
+  </div>
+
+</div>
+
+
+
+
+  {% endblock body %}

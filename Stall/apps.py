@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class OrdersConfig(AppConfig):
+class StallConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'orders'
+    name = 'Stall'

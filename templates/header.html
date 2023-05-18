@@ -4,13 +4,13 @@
 
     <ul class="links">
         <li><a href="/">Home</a></li>
-        <li><a href="#">Order</a></li>
-        <li><a href="#">Cart</a></li>
+        <li><a href="/Stall">Stalls</a></li>
+        <li><a href="#"><i class="fa-solid fa-cart-shopping cart" ></i></a></li>
         <li><a href="/contact">Contact</a></li>
     </ul>
     <div class="searchFun">
       <form action="" class="search" id="search-bar">
-        <input type="search" placeholder="Type something..." name="q" class="search__input">
+        <input type="search" placeholder="Search Dishes " name="q" class="search__input">
 
         <div class="search__button" id="search-button">
           <i class="fa-solid fa-magnifying-glass search__icon"></i>
@@ -41,21 +41,8 @@
 
 <div class="dropdown_menu">
         <li><a href="/">Home</a></li>
-        <li><a href="#">Order</a></li>
-        <li><a href="#">Cart</a></li>
-        <li>
-          <div class="searchfun">
-          <form action="" class="search" id="search-bar">
-              <input type="search" placeholder="Type something..." name="q" class="search__input">
-  
-              <div class="search__button" id="search-button">
-                <i class="fa-solid fa-magnifying-glass search__icon"></i>
-                <i class="fa-solid fa-circle-xmark search__close"></i>
-             
-            </div>
-          </form>
-        </div>
-        </li>
+        <li><a href="/Stall">Stalls</a></li>
+        <li><a href="#"><i class="fa-solid fa-cart-shopping cart" ></i></a></li>
         <li><a href="/contact">Contact</a></li>
         {% if user.is_authenticated %}
         <li><div class="dropdown">

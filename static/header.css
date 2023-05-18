@@ -22,7 +22,7 @@ a{
 }
 
 header{
-    position: relative;
+    position: sticky;
     padding: 0 2rem;
     z-index: 1;
     width: 100%;
@@ -55,6 +55,10 @@ header{
     display: none;
 }
 
+.cart{
+  color: #000000;
+  font-size:18px;
+}
 .login_btn{
     padding: 10px 23px;
     background-color: #ff511c;
@@ -87,7 +91,7 @@ header{
     transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .dropdown_menu.open{
-    height: 330px;
+    height: 250px;
 }
 .dropdown_menu li{
     padding: 0.7rem;
@@ -145,15 +149,11 @@ header{
     display: block;
   }
   
-  .dropdown_menu .searchfun{
-    display: flex;
-    justify-content: center;
-  }
   /* search bar */
   .search {
     position: relative;
-    width: 76px;
-    height: 76px;
+    width: 40px;
+    height: 40px;
     background-color: var(--white-color);
     box-shadow: 0 4px 24px hsla(222, 68%, 12%, 0.1);
     border-radius: 4rem;
@@ -164,13 +164,13 @@ header{
   .search__input {
     border: none;
     outline: none;
-    width: calc(100% - 64px);
+    width: 100%;
     height: 100%;
     border-radius: 4rem;
     padding-left: 14px;
     font-family: var(--body-font);
     font-size: var(--small-font-size);
-    font-weight: 500;
+    font-weight: 400;
     opacity: 0;
     pointer-events: none;
     transition: opacity 1.5s;
@@ -179,8 +179,8 @@ header{
     box-shadow: 0 0 0 100px var(--white-color) inset;
   }
   .search__button {
-    width: 56px;
-    height: 56px;
+    width: 20px;
+    height: 20px;
     background-color: var(--dark-color);
     border-radius: 50%;
     position: absolute;
@@ -195,7 +195,7 @@ header{
   }
   .search__icon, .search__close {
     color: var(--white-color);
-    font-size: 1.5rem;
+    font-size: 1rem;
     position: absolute;
     transition: opacity 0.5s cubic-bezier(0.9, 0, 0.3, 0.9);
   }
@@ -244,7 +244,7 @@ header{
     width: unset;
  }
  .show-search {
-    width: 450px;
+    width: 100px;
   }
 }
 

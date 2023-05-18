@@ -76,18 +76,18 @@
     position: relative;
     margin: 60px 0px 0px 0px;
 }
-.category .list-items h3{
-    font-size: 20px;
+.category .list-items h2{
+    font-size: 40px;
     font-weight:600;
     font-family: sans-serif;
     margin: 0px 0px 80px 0px;
 }
 
-.category .list-items .card-list{
+.category .list-items .Food-card-list{
     display: grid;
     grid-template-columns: repeat(5,1fr);
 }
-.category .card-list .card{
+.category .Food-card-list .Food-card{
     width: 200px;
     height: auto;
     display: block;
@@ -99,7 +99,7 @@
     column-gap: 30px;
     row-gap: 30px;
 }
-.category .card-list .card img{
+.category .Food-card-list .Food-card img{
     width: 100px;
     height: 80px;
     bottom: 140px;
@@ -112,18 +112,18 @@
     box-shadow: 0 20px 20px #faad96;
 }
 
-.category .card-list .card .food-title{
+.category .Food-card-list .Food-card .food-title{
     padding: 40px 0 10px;
 }
 
-.category .card-list .card .food-title h1{
+.category .Food-card-list .Food-card .food-title h1{
     text-align: center;
     font-weight: bold;
     font-size: 16px;
     font-family: sans-serif;
 }
 
-.category  .card .desc-food p{
+.category  .Food-card .desc-food p{
     font-size: 13px;
     text-align: center;
     font-weight: 500;
@@ -131,18 +131,18 @@
     font-family: sans-serif;
 }
 
-.category .card .price{
+.category .Food-card .price{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.category .card .price span{
+.category .Food-card .price span{
     font-weight: 600;
     font-family: sans-serif;
 }
 
-.category .card .price span .icon{
+.category .Food-card .price span .icon{
     color: #ff511c;
     font-size: 20px;
     cursor: pointer;

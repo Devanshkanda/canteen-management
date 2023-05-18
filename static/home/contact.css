@@ -26,7 +26,8 @@
 }
 
 
-.head {
+.contact-body {
+    margin: 10px 0px;
     text-align: center;
     color: #ff511c;
 }
@@ -37,7 +38,7 @@
     font-size: 4rem;
 }
 
-.head h3 {
+.contact-body h3 {
     font-size: 2rem;
 }
 
