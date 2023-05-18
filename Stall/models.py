@@ -7,7 +7,7 @@ class Stall(models.Model):
     canteenStallName=models.CharField(max_length=50)
     StallDesc=models.CharField(max_length=20,default='')
     StallImg=models.ImageField(upload_to='StallImage',default='')
-    Url=models.CharField(max_length=50 ,default='')
+    url=models.CharField(max_length=50 ,default='')
     def __str__(self):
         return  self.canteenStallName
 

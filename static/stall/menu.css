@@ -1,0 +1,19 @@
+
+.Menu-heading{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px 0px 0px;
+}
+
+.Menu-heading h1{
+ font-size: 60px;
+}
+.category{
+    width: 100%;
+}
+.category .list-items h4{
+    font-size: 20px;
+    font-weight:600;
+    font-family: sans-serif;
+    margin: 0px 0px 80px 0px;
+}

@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 def home(request):
-    products = Product.objects.all()
+    products = Product.objects.all()[:5]
 
     data = {
         'products': products

@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{% block title %}Menu{% endblock title %}
+
+{% block body %}
+
+<div class="Menu-heading">
+    <h1>{{StallName.canteenStallName}}</h1>
+</div>
+
+<section class="category">
+    
+    <div class="list-items">
+        <h4>{{.category}}</h4>
+        
+            
+        <div class="Food-card-list">
+            {% for i in  food %}
+            <div class="Food-card">
+                <img src="/media/{{i.productImg}}" alt="">
+                <div class="food-title">
+                    <h1>{{i.productName}}</h1>
+                </div>
+                <div class="desc-food">
+                    <p>{{i.productDesc}}</p>
+                </div>
+                <div class="price">
+                    <span><i class="fa-solid fa-circle-minus icon"></i></span> <span>&#8377 {{i.price}}</span>
+                    <span><i class="fa-solid fa-circle-plus icon"></i></span>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+        
+    </div>
+    
+</section>
+
+
+
+
+  {% endblock body %}
