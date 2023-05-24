@@ -30,7 +30,7 @@ class Product(models.Model):
 # order models
 
 class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL ,null=True,blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False)
     transactionId=models.CharField(null=True, max_length=50)
@@ -50,8 +50,7 @@ class Order(models.Model):
     
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL,null=True)
-    order =models.ForeignKey(Order,on_delete=models.SET_NULL,null=True)
-    stall =models.ForeignKey( Stall,on_delete=models.SET_NULL,null=True)
+    order =models.ForeignKey(Order,on_delete=models.CASCADE,null=True)
     quantity=models.IntegerField(default=0,null=True,blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
     def __str__(self):

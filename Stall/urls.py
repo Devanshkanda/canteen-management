@@ -6,4 +6,6 @@ urlpatterns = [
     path('menu/<slug:url>', views.Menu, name='Menu'),
     path('updateItem/', views.updateItem, name='updateItem'),
     path('cart/',views.cart,name='cart'),
+    path('checkout/',views.checkout,name='checkout'),
+
 ]

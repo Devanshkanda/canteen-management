@@ -49,10 +49,10 @@ def updateItem(request):
 
         customer = request.user
         product = Product.objects.get(id = productId)
-        stall = Product.objects.get(Product.StallName2)
+
         order , created = Order.objects.get_or_create(user=customer,complete=False)
 
-        orderItem, created =OrderItem.objects.get_or_create(order=order,product=product,stall=stall)
+        orderItem, created =OrderItem.objects.get_or_create(order=order,product=product)
 
         if action=='add':
             orderItem.quantity = (orderItem.quantity +1)
@@ -66,4 +66,8 @@ def updateItem(request):
 
 
     return JsonResponse ('item was added' ,safe=False)
+
+
+def checkout(request):
+    return render(request, 'stall/checkout.html') 
 
