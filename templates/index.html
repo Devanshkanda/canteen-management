@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Canteen management | {% block title %}{% endblock title %}</title>
-
+    
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         {% load static %}
         <link rel="stylesheet" href="/static/header.css">
@@ -17,9 +17,31 @@
         <link rel="stylesheet" href="/static/home/login.css">
         <link rel="stylesheet" href="/static/stall/res.css">
         <link rel="stylesheet" href="/static/stall/menu.css">
+        <link rel="stylesheet" href="/static/stall/cart.css">
 
 
+        <script type="text/javascript">
+            var user ='{{request.user}}'
 
+            function getToken(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        // Does this cookie string begin with the name we want?
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+            const csrftoken = getToken('csrftoken');
+        </script>
+        
+        
     </head>
 <body>
      
@@ -31,8 +53,11 @@
     {% endblock body %}
 
 
+    <script src="/static/javascript/cart.js"></script>
 </body>
 
     {% block script %}
+    
     {% endblock script %}
+
 </html>

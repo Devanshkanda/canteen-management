@@ -25,8 +25,8 @@
                     <p>{{i.productDesc}}</p>
                 </div>
                 <div class="price">
-                    <span><i class="fa-solid fa-circle-minus icon"></i></span> <span>&#8377 {{i.price}}</span>
-                    <span><i class="fa-solid fa-circle-plus icon"></i></span>
+                    </i></span> <span>&#8377 {{i.price}}</span>
+                    <span><button data-product={{i.id}} data-action="add" class=" fa-solid fa-circle-plus icon update-cart"></button></span>
                 </div>
             </div>
             {%endfor%}

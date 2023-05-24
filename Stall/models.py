@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 #stalls modals
 class Stall(models.Model):
@@ -25,3 +25,49 @@ class Product(models.Model):
     
     def __str__(self):
         return  self.StallName2 + " " +self.productName
+
+
+# order models
+
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL ,null=True,blank=True)
+    date_ordered = models.DateTimeField(auto_now_add=True)
+    complete = models.BooleanField(default=False)
+    transactionId=models.CharField(null=True, max_length=50)
+
+    def __str__(self):
+        return str(self.user)
+    @property
+    def get_cart_total(self):
+        orderitems = self.orderitem_set.all()
+        total = sum([item.get_total for item in orderitems])
+        return total
+    @property
+    def get_cart_items(self):
+        orderitems = self.orderitem_set.all()
+        total = sum([item.quantity for item in orderitems])
+        return total
+    
+class OrderItem(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL,null=True)
+    order =models.ForeignKey(Order,on_delete=models.SET_NULL,null=True)
+    stall =models.ForeignKey( Stall,on_delete=models.SET_NULL,null=True)
+    quantity=models.IntegerField(default=0,null=True,blank=True)
+    date_added = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return str(self.product) +" "+str(self.order.user) +" "+str(self.date_added)
+    
+    @property
+    def get_total(self):
+        total = self.product.price * self.quantity
+        return total
+    
+class DeliveryInfo(models.Model):
+    customer=models.ForeignKey(User, on_delete=models.SET_NULL ,null=True)
+    order =models.ForeignKey(Order,on_delete=models.SET_NULL,null=True)
+    ClassNo=models.IntegerField(default='')
+    FloorNo=models.IntegerField(default='')
+    
+    def __str__(self):
+        return str(self.ClassNo)
+

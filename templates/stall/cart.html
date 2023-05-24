@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+{% block title %}Cart{% endblock title %}
+
+{% block body %}
+
+<div class="wrapper">
+    <h1>Shopping Cart</h1>
+    <div class="project">
+        <div class="shop">
+            {% for i in items %}
+            <div class="cart-box">
+                <img src="/media/{{i.product.productImg}}">
+                <div class="content">
+                    <h3>{{i.product.productName}} ({{i.product.StallName2}})</h3>
+                    <div class="price">
+                        <p>Price: &#8377 {{i.product.price}}</p>
+                        <p>Subtotal: &#8377 {{i.get_total}}</p>
+                    </div>
+                    <div class="quantity">
+                        <p class="unit">Quantity: {{i.quantity}}</p>
+                        <div class="icon"> <!-- to insert + - buttons -->
+                            <button data-product={{i.product.id}} data-action="add" class="icon-btn-plus fa fa-plus update-cart"></button>
+                            <button data-product={{i.product.id}} data-action="remove" class="icon-btn-minus fa fa-minus update-cart"></button>
+                        </div>
+                    </div>
+                    <p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></p>
+                </div>
+            </div>
+
+            {% endfor %}
+            
+        </div>
+        <div class="right-bar">
+            <p><span>Items :</span> <span>{{order.get_cart_items}}</span></p>
+            <hr>
+            <p><span>Total :</span> <span>{{order.get_cart_total}}</span></p><a href="#"><i class="fa fa-shopping-cart"></i>Checkout</a>
+        </div>
+    </div>
+</div>
+{% endblock body%}
