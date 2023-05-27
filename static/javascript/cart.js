@@ -9,7 +9,8 @@ for(var i = 0; i < updateBtns.length; i++ ){
  
         console.log('USER:',user)
         if(user === 'AnonymousUser' ){
-            console.log('not logged in')
+            alert('Please Login To continue');
+            window.location.href="/login"
         }
         else{
             updateUserOrder(productId,action)

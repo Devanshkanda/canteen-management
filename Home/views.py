@@ -5,19 +5,38 @@ import hashlib as hashh
 from django.contrib.auth  import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
+from Stall.utils import cartData
 
 
 # Create your views here.
 def home(request):
+    #fetching cart items to display in header
+    data = cartData(request)
+    items = data['items']
+    order = data['order']
+    cartItems=data['cartItems']
+    
+    #to fetch  products 
     products = Product.objects.all()[:5]
 
     data = {
-        'products': products
+        'products': products,'cartItems':cartItems,'items' :items ,'order' : order
     }
 
     return render(request,'Home/home.html',data)
 
 def contact(request):
+    #fetching cart items to display in header
+
+    data = cartData(request)
+    items = data['items']
+    order = data['order']
+    cartItems=data['cartItems']
+
+    data = {
+        'items' :items ,'order' : order,'cartItems':cartItems
+    }
+    #to send data to db
     if request.method == 'POST':
         first_name = str(request.POST['firstname'])
         last_name = str(request.POST['lastname'])
@@ -26,11 +45,13 @@ def contact(request):
         message = str(request.POST['message'])
         contact = Contact(first_name=first_name, last_name=last_name, email=email, phone_no=phone_no, message=message)
         contact.save()
-    return render(request,'Home/contact.html')
+        messages.success(request, "Your response have been submitted")
+    return render(request,'Home/contact.html',data)
 
 
 
 def search(request):
+    
     return HttpResponse ('This is search')
 
 #authentication api's

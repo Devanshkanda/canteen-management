@@ -3,21 +3,44 @@ from django.contrib.auth.models import User
 from Stall.models import Stall,Product,Order,OrderItem,DeliveryInfo
 from django.http import JsonResponse
 import json
+from django.contrib import messages
+import datetime
+from .utils import cartData
+
 # Create your views here.
 def Stalls(request):
+    #fetching cart items to display in header
+
+    data = cartData(request)
+    items = data['items']
+    order = data['order']
+    cartItems=data['cartItems']
+
+    #to fetch stalls
     stalls = Stall.objects.all()
 
-    context = {'stalls':stalls}
+    context = {'stalls':stalls,'cartItems':cartItems,'items' :items ,'order' : order}
 
     return render(request,'Stall/restaurantView.html',context)
 
 def Menu(request,url):
+    #fetching cart items to display in header
+
+    data = cartData(request)
+    items = data['items']
+    order = data['order']
+    cartItems=data['cartItems']
+
+    
    # To fetch products 
     StallName=Stall.objects.get(url=url)
     food=Product.objects.filter(StallName=StallName)
     context2 = {
         'StallName': StallName,
         'food':food,  
+        'cartItems':cartItems,
+        'items' :items ,
+        'order' : order
     }
     return render(request,'Stall/MenuView.html',context2)
 
@@ -25,14 +48,13 @@ def Menu(request,url):
 
 
 def cart(request):
-    if request.user.is_authenticated:
-        customer =request.user
-        order,created =Order.objects.get_or_create(user = customer ,complete =False)
-        items =order.orderitem_set.all()
-    else:
-        items =[]
-        order ={'get_cart_total':0,'get_cart_items':0}
-    context={'items' :items ,'order' : order}
+    #fetching cart items to display in header & cart
+
+    data = cartData(request)
+    items = data['items']
+    order = data['order']
+    cartItems=data['cartItems']
+    context={'items' :items ,'order' : order,'cartItems':cartItems}
     return render(request,'stall/cart.html',context)
 
 
@@ -60,6 +82,9 @@ def updateItem(request):
             orderItem.quantity = (orderItem.quantity -1)
         orderItem.save()
 
+        if action=='remove-item':
+            orderItem.delete()
+
         if  orderItem.quantity <= 0:
             orderItem.delete()
 
@@ -69,5 +94,41 @@ def updateItem(request):
 
 
 def checkout(request):
-    return render(request, 'stall/checkout.html') 
+    #fetching cart items to display in header & checkout page
+
+    data = cartData(request)
+    items = data['items']
+    order = data['order']
+    cartItems=data['cartItems']
+    context={'items' :items ,'order' : order,'cartItems':cartItems}
+    return render(request, 'stall/checkout.html',context) 
+
+
+def processOrder(request):
+    transaction_id=datetime.datetime.now().timestamp()
+    data=json.loads(request.body)
+
+    if request.user.is_authenticated:
+        customer=request.user
+        order,created =Order.objects.get_or_create(user = customer ,complete =False)
+        total = int(data['form']['total'])
+        order.transactionId =transaction_id
+
+        if total == order.get_cart_total:
+            order.complete = True
+        order.save()
+
+        DeliveryInfo.objects.create(
+            customer=customer,
+            order=order,
+            email=data['form']['email'],
+            ClassNo=data['form']['room'],
+            Phone=data['form']['phone'],
+        )
+
+    else:
+        messages.warning(request, "User is Not Logged In")
+
+
+    return JsonResponse ('Payment Complete' ,safe=False)
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        {% load static %}
 
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +10,7 @@
     
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         
-        {% load static %}
+
         <link rel="stylesheet" href="/static/header.css">
         <link rel="stylesheet" href="/static/footer.css">
         <link rel="stylesheet" href="/static/style.css">
@@ -19,6 +20,10 @@
         <link rel="stylesheet" href="/static/stall/res.css">
         <link rel="stylesheet" href="/static/stall/menu.css">
         <link rel="stylesheet" href="/static/stall/cart.css">
+        <link rel="stylesheet" href="/static/stall/checkout.css">
+       
+
+
 
 
         <script type="text/javascript">
@@ -49,12 +54,18 @@
     
       {% include 'header.html'%}
 
+    
+
 
     {% block body %} 
+
     {% endblock body %}
 
 
     <script src="/static/javascript/cart.js"></script>
+    <script src="/static/javascript/message.js"></script>
+
+
 </body>
 
     {% block script %}

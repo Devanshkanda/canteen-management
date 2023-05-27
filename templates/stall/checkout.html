@@ -3,6 +3,103 @@
 {% block title %}Checkout{% endblock title %}
 
 {% block body %}
+<h1 class="heading">Canteen Management System Checkout Page</h1>
+    <div class="main">
 
+        <div class="left">
+            <form id="form">
+                <h1>Enter your information</h1> 
+                <input type="text" name="name" placeholder="Name" value="{{request.user}}">
+                <input type="Email" name="email" placeholder="Email" value="{{request.user.email}}" >
+                <input type="text" name="room" placeholder="Room Number">
+                <input type="text" name="phone" placeholder="Phone Number">
+                <input type="submit" class="btn-con" id="form-btn" value="Continue">
+            </form>
+        </div>
+
+        <div class="right">
+            <div class="upper">
+               <a href="/cart"><button class="back" >Back to Cart</button></a> 
+                <hr>
+                <h1>Order Summary</h1>
+                <hr>
+            </div>
+            {% for i in items %}
+            <div class="product">
+                <img class="order-image" src="/media/{{i.product.productImg}}" alt="product image">
+                <h2 class="order-name">{{i.product.productName}} ({{i.product.StallName2}})</h2>
+                <h2 class="order-price">{{i.product.price}}</h2>
+                <h2 class="order-quantity">X {{i.quantity}}</h2>
+            </div>
+            {% endfor %}
+            <div class="total">
+                <h2>Total Items:- {{order.get_cart_items}} </h2>
+                <h2>Total:-  &#8377 {{order.get_cart_total}} </h2>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="payment-control hidden" id="payment-info">
+        <h1>payment Options</h1>
+        <input type="submit" id="make-payment" value="Proceed to pay" >
+    </div>
 
 {% endblock body%}
+
+{% block script %}
+    <script type="text/javascript">
+        var total ='{{order.get_cart_total}}'
+        var form = document.getElementById('form')
+        form.addEventListener('submit',function(e){
+            e.preventDefault()
+            console.log('form submitted')
+            document.getElementById('form-btn').classList.add("hidden");
+            document.getElementById('payment-info').classList.remove("hidden");
+        })
+
+        document.getElementById('make-payment').addEventListener('click',function(e){
+            SubmitFormData()
+        })
+
+        function SubmitFormData(){
+            console.log('payment button clicked')
+            var  DeliveryInformation={
+                'name' :null,
+                'email':null,
+                'total':total,
+                'room':null,
+                'phone':null
+            }
+
+            DeliveryInformation.name = form.name.value
+            DeliveryInformation.email = form.email.value
+            DeliveryInformation.room = form.room.value
+            DeliveryInformation.phone = form.phone.value
+
+
+            var url = '/processOrder/'
+            fetch(url,{
+                method :'POST',
+                headers:{
+                        'Content-Type':'application/json',
+                        'X-CSRFToken': csrftoken,
+                },
+                body:JSON.stringify({'form': DeliveryInformation}),
+            })
+
+            .then((response) =>{
+                response.json()
+             })
+
+            .then((data) =>{
+                console.log('Sucess:' ,data);
+                alert('Transaction Completed');
+                window.location.href="/"
+            })
+
+        }
+    </script>
+{% endblock script %}
+

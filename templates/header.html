@@ -5,7 +5,8 @@
     <ul class="links">
         <li><a href="/">Home</a></li>
         <li><a href="/stall">Stalls</a></li>
-        <li><a href="/cart"><i class="fa-solid fa-cart-shopping cart" ></i></a></li>
+        <li><a href="/cart"><i class="fa-solid fa-cart-shopping cart" ><span> {{order.get_cart_items}}</span>
+        </i></a></li>
         <li><a href="/contact">Contact</a></li>
     </ul>
     <div class="searchFun">
@@ -42,7 +43,7 @@
 <div class="dropdown_menu">
         <li><a href="/">Home</a></li>
         <li><a href="/Stall">Stalls</a></li>
-        <li><a href="/cart"><i class="fa-solid fa-cart-shopping cart" ></i></a></li>
+        <li><a href="/cart"><i class="fa-solid fa-cart-shopping cart" ><span> {{order.get_cart_items}}</span></i></a></li>
         <li><a href="/contact">Contact</a></li>
         {% if user.is_authenticated %}
         <li><div class="dropdown">

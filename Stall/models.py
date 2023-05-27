@@ -64,9 +64,10 @@ class OrderItem(models.Model):
 class DeliveryInfo(models.Model):
     customer=models.ForeignKey(User, on_delete=models.SET_NULL ,null=True)
     order =models.ForeignKey(Order,on_delete=models.SET_NULL,null=True)
+    email=models.CharField(default='', max_length=50)
     ClassNo=models.IntegerField(default='')
-    FloorNo=models.IntegerField(default='')
+    Phone=models.IntegerField(default='')
     
     def __str__(self):
-        return str(self.ClassNo)
+        return str(self.ClassNo)  + " " + str(self.Phone)
 

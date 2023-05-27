@@ -4,6 +4,25 @@
 
 {% block body %}
 
+
+
+
+
+{% if order.get_cart_items == 0 %}
+
+<div class="Shopping-container">
+    <div class="heading-container">
+        <h1 class="heading-cart-login">Your Cart is Empty ! Add Tasty Food </h1>
+    </div>
+    <div class="shoping-btn-container">
+        <button class="btn-cart-login">Order here!</button>
+    </div>
+
+</div>
+
+
+{% elif  order.get_cart_items != 0 %}
+
 <div class="wrapper">
     <h1>Shopping Cart</h1>
     <div class="project">
@@ -24,7 +43,7 @@
                             <button data-product={{i.product.id}} data-action="remove" class="icon-btn-minus fa fa-minus update-cart"></button>
                         </div>
                     </div>
-                    <p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></p>
+                    <p class="btn-area"><button data-product={{i.product.id}} data-action="remove-item" class=" remove-btn fa fa-trash update-cart">Remove</button></p>
                 </div>
             </div>
 
@@ -34,8 +53,13 @@
         <div class="right-bar">
             <p><span>Items :</span> <span>{{order.get_cart_items}}</span></p>
             <hr>
-            <p><span>Total :</span> <span>{{order.get_cart_total}}</span></p><a href="#"><i class="fa fa-shopping-cart"></i>Checkout</a>
+            <p><span>Total :</span> <span> &#8377 {{order.get_cart_total}}</span></p><a href="/checkout"><i class="fa fa-shopping-cart"></i>Checkout</a>
         </div>
     </div>
 </div>
+{%endif%}
+
+
+
+
 {% endblock body%}

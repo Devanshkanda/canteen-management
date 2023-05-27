@@ -43,7 +43,7 @@
 .content h4 {
 	margin-bottom: 50px;
 }
-.btn-area {
+.remove-btn{
 	position: absolute;
 	bottom: 20px;
 	right: 20px;
@@ -137,6 +137,37 @@
 .icon i{
 	padding: 2px;
 	margin: 2px;
+}
+
+
+/* before login  */
+.Shopping-container{
+	border: 2px solid black;
+	border-radius: 20px ;
+	margin: 60px auto;
+	width: 400px;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	flex-direction:column ;
+	background-color: #ffeae0;
+}
+.heading-container{
+	display: flex;
+	justify-content: center;
+}
+.shoping-btn-container{
+	display: flex;
+	justify-content: center;
+
+}
+.btn-cart-login{
+padding: 10px 23px;
+background-color: #ff511c;
+color: black;
+border-radius: 5px;
+border:none;
+cursor: pointer;
 }
 
 
