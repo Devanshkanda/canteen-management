@@ -42,7 +42,7 @@ def Menu(request,url):
         'items' :items ,
         'order' : order
     }
-    return render(request,'Stall/MenuView.html',context2)
+    return render(request,'stall/MenuView.html',context2)
 
 
 
