@@ -21,7 +21,7 @@ def Stalls(request):
 
     context = {'stalls':stalls,'cartItems':cartItems,'items' :items ,'order' : order}
 
-    return render(request,'Stall/restaurantView.html',context)
+    return render(request,'stall/restaurantView.html',context)
 
 def Menu(request,url):
     #fetching cart items to display in header
@@ -42,7 +42,7 @@ def Menu(request,url):
         'items' :items ,
         'order' : order
     }
-    return render(request,'Stall/MenuView.html',context2)
+    return render(request,'stall/MenuView.html',context2)
 
 
 

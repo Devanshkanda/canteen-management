@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %} Search {% endblock title %}
+
+{% block body %}
+
+{% for p in productname %}
+
+    
+    <h1> {{p.productName}} </h1>
+    
+    <h2> {{p.StallName2}} and price is {{p.price}} </h2>
+    
+    <br>
+    
+
+{% endfor %}
+
+{% endblock body %}
+
+

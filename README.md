@@ -1,6 +1,5 @@
 # canteen-management
+hello this is project on canteen food management system
 
-
-    pip install django-phonenumber-field
-    pip install django-phonenumbers
+    pip install -r requirements.txt 
 
