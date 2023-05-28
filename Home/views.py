@@ -51,8 +51,29 @@ def contact(request):
 
 
 def search(request):
-    
-    return HttpResponse ('This is search')
+    if request.method == 'GET':
+        search = request.GET.get('search')
+
+        if len(search)>20:
+            item = Product.objects.none()
+            messages.warning(request, "Sorry No Search Result Found ..")
+            return render(request, 'Home/home.html')
+        else:
+            search_item_product = Product.objects.filter(productName__icontains = search)
+            
+            if search_item_product.count()==0:
+                messages.warning(request, "Sorry No Search Result Found ..")
+                return render(request, 'Home/home.html')
+            
+            # search_item_stallname = Product.objects.filter(StallName__icontains = search)
+            print(search_item_product)
+            item = {
+                "productname" : search_item_product
+            }
+            
+        return render(request, 'Home/search.html', item)
+    else:
+        return render(request, 'Home/home.html')
 
 #authentication api's
 
