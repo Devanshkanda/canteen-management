@@ -36,7 +36,7 @@ class Order(models.Model):
     transactionId=models.CharField(null=True, max_length=50)
 
     def __str__(self):
-        return str(self.user)
+        return str(self.user) + " " + str(self.transactionId)
     @property
     def get_cart_total(self):
         orderitems = self.orderitem_set.all()
@@ -67,7 +67,11 @@ class DeliveryInfo(models.Model):
     email=models.CharField(default='', max_length=50)
     ClassNo=models.IntegerField(default='')
     Phone=models.IntegerField(default='')
+    amount=models.IntegerField(default=0)
     
     def __str__(self):
         return str(self.ClassNo)  + " " + str(self.Phone)
+    
+
+    
 

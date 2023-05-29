@@ -110,7 +110,7 @@ def processOrder(request):
 
     if request.user.is_authenticated:
         customer=request.user
-        order,created =Order.objects.get_or_create(user = customer ,complete =False)
+        order,created = Order.objects.get_or_create(user = customer ,complete =False)
         total = int(data['form']['total'])
         order.transactionId =transaction_id
 
@@ -124,6 +124,7 @@ def processOrder(request):
             email=data['form']['email'],
             ClassNo=data['form']['room'],
             Phone=data['form']['phone'],
+            amount=data['form']['amount']
         )
 
     else:
@@ -131,4 +132,7 @@ def processOrder(request):
 
 
     return JsonResponse ('Payment Complete' ,safe=False)
+
+def orderPlaced(request):
+    return render(request,'stall/orderplaced.html')
 

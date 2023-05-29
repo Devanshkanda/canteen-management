@@ -32,15 +32,15 @@
 	height: 200px;
 	object-fit: cover;
 }
-.content {
+.cart-content {
 	padding: 20px;
 	width: 100%;
 	position: relative;
 }
-.content h3 {
+.cart-content h3 {
 	margin-bottom: 30px;
 }
-.content h4 {
+.cart-content h4 {
 	margin-bottom: 50px;
 }
 .remove-btn{
@@ -172,10 +172,10 @@ cursor: pointer;
 
 
 @media screen and (max-width: 700px) {
-	.content h3 {
+	.cart-content h3 {
 		margin-bottom: 15px;
 	}
-	.content h4 {
+	.cart-content h4 {
 		margin-bottom: 20px;
 	}
 	.btn2 {

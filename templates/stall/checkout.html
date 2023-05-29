@@ -8,18 +8,20 @@
 
         <div class="left">
             <form id="form">
+                {% csrf_token %}
                 <h1>Enter your information</h1> 
                 <input type="text" name="name" placeholder="Name" value="{{request.user}}">
                 <input type="Email" name="email" placeholder="Email" value="{{request.user.email}}" >
                 <input type="text" name="room" placeholder="Room Number">
                 <input type="text" name="phone" placeholder="Phone Number">
+                <input type="hidden" name="amount" placeholder="" value="{{order.get_cart_total}}">
                 <input type="submit" class="btn-con" id="form-btn" value="Continue">
             </form>
         </div>
 
         <div class="right">
             <div class="upper">
-               <a href="/cart"><button class="back" >Back to Cart</button></a> 
+               <a href="/cart"><button class="back-btn" >Back to Cart</button></a> 
                 <hr>
                 <h1>Order Summary</h1>
                 <hr>
@@ -70,13 +72,16 @@
                 'email':null,
                 'total':total,
                 'room':null,
-                'phone':null
+                'phone':null,
+                'amount':null,
             }
 
             DeliveryInformation.name = form.name.value
             DeliveryInformation.email = form.email.value
             DeliveryInformation.room = form.room.value
             DeliveryInformation.phone = form.phone.value
+            DeliveryInformation.amount = form.amount.value
+
 
 
             var url = '/processOrder/'
@@ -95,8 +100,8 @@
 
             .then((data) =>{
                 console.log('Sucess:' ,data);
-                alert('Transaction Completed');
-                window.location.href="/"
+                alert('Transaction Completed {{order.transaction_id}}');
+                window.location.href="/orderPlaced"
             })
 
         }
