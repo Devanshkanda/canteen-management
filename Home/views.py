@@ -51,6 +51,10 @@ def contact(request):
 
 
 def search(request):
+    data = cartData(request)
+    items = data['items']
+    order = data['order']
+    cartItems=data['cartItems']
     if request.method == 'GET':
         search = request.GET.get('search')
 
@@ -68,7 +72,7 @@ def search(request):
             # search_item_stallname = Product.objects.filter(StallName__icontains = search)
             print(search_item_product)
             item = {
-                "productname" : search_item_product
+                "productname" : search_item_product,'items' :items ,'order' : order,'cartItems':cartItems
             }
             
         return render(request, 'Home/search.html', item)
