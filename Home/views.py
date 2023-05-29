@@ -52,18 +52,19 @@ def contact(request):
 
 def search(request):
     if request.method == 'GET':
-        search = request.GET.get('search')
+        search = str(request.GET.get('search'))
 
-        if len(search)>20:
+        if len(search)>10:
             item = Product.objects.none()
             messages.warning(request, "Sorry No Search Result Found ..")
-            return render(request, 'Home/home.html')
+            return render(request, 'Home/search.html')
         else:
             search_item_product = Product.objects.filter(productName__icontains = search)
-            
             if search_item_product.count()==0:
                 messages.warning(request, "Sorry No Search Result Found ..")
-                return render(request, 'Home/home.html')
+                item = Product.objects.none()
+                print("else vali cinditioon pe pohoch gaya")
+                return render(request, 'Home/search.html', {"productname": item})
             
             # search_item_stallname = Product.objects.filter(StallName__icontains = search)
             print(search_item_product)

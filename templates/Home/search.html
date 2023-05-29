@@ -4,17 +4,24 @@
 
 {% block body %}
 
-{% for p in productname %}
 
-    
-    <h1> {{p.productName}} </h1>
-    
-    <h2> {{p.StallName2}} and price is {{p.price}} </h2>
-    
-    <br>
-    
+{% if productname %}
 
-{% endfor %}
+    {% for p in productname %}
+
+        <h1> {{p.productName}} </h1>
+        
+        <h2> {{p.StallName2}} and price is {{p.price}} </h2>
+        
+        <br>
+
+    {% endfor %}
+
+{% else %}
+    <h1> Nahi </h1>
+    <h1> Sorry the product is not Available! </h1>
+
+{% endif %}
 
 {% endblock body %}
 
