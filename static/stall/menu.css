@@ -58,7 +58,7 @@
  .Food-card-list .Food-card img{
     width: 100px;
     height: 80px;
-    bottom: 140px;
+    bottom: 150px;
     left: 50px;
     border-radius: 60px;
     object-fit: cover;
@@ -102,4 +102,6 @@
     color: #ff511c;
     font-size: 20px;
     cursor: pointer;
+    border: none;
+    border-radius: 20px;
 }

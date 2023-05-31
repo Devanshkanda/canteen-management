@@ -103,11 +103,10 @@
 
 
 /* ****************************************** */
-.price{
-	/* position: absolute;
-	top: 70px;
-	right: 30px; */
-	padding: 10px 25px;
+.cart-content .price{
+	position: absolute;
+	top: 62px;
+	right: 42px;
 	background-color: white;
 	color: black;
 	cursor: pointer;
@@ -117,6 +116,10 @@
 .quantity{
 	display: flex;
 	flex-direction: row;
+}
+
+.quantity p{
+	margin-bottom: 0rem;
 }
 
 .icon{
@@ -145,7 +148,7 @@
 	border: 2px solid black;
 	border-radius: 20px ;
 	margin: 60px auto;
-	width: 400px;
+	width: 660px;
 	height: 150px;
 	display: flex;
 	justify-content: center;
