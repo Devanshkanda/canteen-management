@@ -6,7 +6,8 @@
 }
 
 .Menu-heading h1{
- font-size: 60px;
+    font-size: 60px;
+    margin: 40px; 
 }
 .category{
     width: 100%;
@@ -59,7 +60,8 @@
     width: 100px;
     height: 80px;
     bottom: 150px;
-    left: 50px;
+    margin: 30px;
+    left: 30px;
     border-radius: 60px;
     object-fit: cover;
     object-position: center;

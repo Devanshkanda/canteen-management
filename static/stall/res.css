@@ -27,6 +27,7 @@
 
 .container .box-container .box img{
   height: 80px;
+  border-radius: 20px;
 }
 
 .container .box-container .box h3{
@@ -59,6 +60,7 @@
   box-shadow: 0 10px 15px rgba(0,0,0,.3);
   transform: scale(1.03);
 }
+
 
 @media (max-width:768px){
   .container{
