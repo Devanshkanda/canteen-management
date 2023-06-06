@@ -17,10 +17,10 @@ def home(request):
     cartItems=data['cartItems']
     
     #to fetch  products 
-    products = Product.objects.all()[:5]
+    products = Product.objects.all()[:4]
 
     data = {
-        'products': products,'cartItems':cartItems,'items' :items ,'order' : order
+        'products': products ,'cartItems':cartItems,'items' :items ,'order' : order
     }
 
     return render(request,'Home/home.html',data)
@@ -43,8 +43,8 @@ def contact(request):
         email = str(request.POST['email'])
         phone_no = str(request.POST['phone'])
         message = str(request.POST['message'])
-        contact = Contact(first_name=first_name, last_name=last_name, email=email, phone_no=phone_no, message=message)
-        contact.save()
+        cont = Contact(first_name=first_name, last_name=last_name, email=email, phone_no=phone_no, message=message)
+        cont.save()
         messages.success(request, "Your response have been submitted")
     return render(request,'Home/contact.html',data)
 

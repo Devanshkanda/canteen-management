@@ -22,22 +22,22 @@
 </section>
 <section class="category">
     <div class="list-items">
-        <h2>Popular Dishes Of Nescafe</h2>
+        <h2>Popular Dishes Of 6iteamin</h2>
         
         <div class="Food-card-list">
-            {% for product in products %}
-            {%if product.StallName2 == 'Nescafe'%}
-            <div class="Food-card">
-                <img src="/media/{{product.productImg}}" alt="">
+            {% for i in products %}
+            {%if i.StallName2 == '6iteamin'%}
+                <div class="Food-card">
+                <img src="/media/{{i.productImg}}" alt="">
                 <div class="food-title">
-                    <h1>{{product.productName}}</h1>
+                    <h1>{{i.productName}}</h1>
                 </div>
                 <div class="desc-food">
-                    <p>{{product.productDesc}}</p>
+                    <p>{{i.productDesc}}</p>
                 </div>
                 <div class="price">
-                    <span><i class="fa-solid fa-circle-minus icon"></i></span> <span>&#8377 {{product.price}}</span>
-                    <span><i class="fa-solid fa-circle-plus icon"></i></span>
+                    </i></span> <span>&#8377 {{i.price}}</span>
+                    <span><button data-product={{i.id}} data-action="add" class=" fa-solid fa-circle-plus icon update-cart"></button></span>
                 </div>
             </div>
             {% endif %}
