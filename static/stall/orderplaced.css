@@ -1,6 +1,6 @@
 .op-main{
     height: 700px;
-    width: 50%;
+    width: 70%;
     margin: auto;
     background-color: orangered;
     color: white;
@@ -17,11 +17,10 @@
     width: 70%;
     height: 250px;
     margin: 20px;
-    position: relative;
 }
 
 .boy{
-    background-image: url("deliv-boy.JPG");
+    background-image: url("deliv-boy.png");
     background-size: cover;
     width: 300px;
     height: 220px;
@@ -32,15 +31,15 @@
 }
 @keyframes mymove {
     from {left: 0px;}
-    to {left: 70%;}
+    to {left: 50%;}
 }
 
 .last{
-    display: inline-block;
-    margin-right: 1%;
-    position: absolute;
-    bottom: -220px;
-    right: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 215px;
 }
 
 .back {

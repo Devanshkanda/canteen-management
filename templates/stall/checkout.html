@@ -10,10 +10,10 @@
             <form id="form">
                 {% csrf_token %}
                 <h1>Enter your information</h1> 
-                <input type="text" name="name" placeholder="Name" value="{{request.user}}">
-                <input type="Email" name="email" placeholder="Email" value="{{request.user.email}}" >
-                <input type="text" name="room" placeholder="Room Number">
-                <input type="text" name="phone" placeholder="Phone Number">
+                <input type="text" name="name" placeholder="Name" value="{{request.user}}" required>
+                <input type="Email" name="email" placeholder="Email" value="{{request.user.email}}" required>
+                <input type="text" name="room" placeholder="Room Number"required>
+                <input type="text" name="phone" placeholder="Phone Number" required>
                 <input type="hidden" name="amount" placeholder="" value="{{order.get_cart_total}}">
                 <input type="submit" class="btn-con" id="form-btn" value="Continue">
             </form>
@@ -43,9 +43,42 @@
 
     </div>
 
-    <div class="Payment-control hidden" id="payment-info">
+    <div class="hidden  Payment-control" id="payment-info">
         <h1>payment Options</h1>
-        <input type="submit" id="make-payment" value="Proceed to pay" >
+        {% comment %} <input type="submit" id="make-payment" value="Proceed to pay" > {% endcomment %}
+
+        <div id="paypal-button-container"></div>
+
+    <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=ATGp05cYmrdnYxu0mUpivqHow-T4OSFOeEuG94YeBsNhuAJnpRKHXzCgreIYWJHc_kzT3HBn1ZOZeb2i&currency=USD&disable-funding=card"></script>
+        <script>
+            // Render the PayPal button into #paypal-button-container
+            paypal.Buttons({
+    
+                // Set up the transaction
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: '{{order.get_cart_total}}'
+                            }
+                        }]
+                    });
+                },
+    
+                // Finalize the transaction
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(orderData) {
+                        // Successful capture! For demo purposes:
+                        SubmitFormData()
+                       
+                        
+                    });
+                }
+    
+    
+            }).render('#paypal-button-container');
+        </script>
     </div>
 
 {% endblock body%}
@@ -61,9 +94,9 @@
             document.getElementById('payment-info').classList.remove("hidden");
         })
 
-        document.getElementById('make-payment').addEventListener('click',function(e){
+        {% comment %} document.getElementById('make-payment').addEventListener('click',function(e){
             SubmitFormData()
-        })
+        }) {% endcomment %}
 
         function SubmitFormData(){
             console.log('payment button clicked')

@@ -3,39 +3,39 @@
 {% block title %} Search {% endblock title %}
 
 {% block body %}
+<div class="Menu-heading">
+    <h1>Search Results</h1>
+</div>
 
-{% for p in productname %}
 <section class="category">
-<div class="list-items">
-<div class="Food-card-list">
-<div class="Food-card">
-    <img src="/media/{{p.productImg}}" style="width: 100px ; height: 100px ; width: 100px;
-    height: 80px;
-    bottom: 140px;
-    left: 50px;
-    border-radius: 60px;
-    object-fit: cover;
-    object-position: center;
-    background-repeat: no-repeat;
-    position: absolute;" alt="">
-    <div class="food-title">
-        <h1>{{p.productName}}</h1>
-    </div>
-    <div class="desc-food">
-        <p>{{p.productDesc}}</p>
-    </div>
-    <div class="price">
-        </i></span> <span>&#8377 {{p.price}}</span>
-        <span><button data-product={{p.id}} data-action="add" class=" fa-solid fa-circle-plus icon update-cart"></button></span>
-    </div>
-</div>
-</div>
-</div>
-</section>
     
+    <div class="list-items">
+        {% comment %} <h4>{{.category}}</h4> {% endcomment %}
+        
+            
+        <div class="Food-card-list">
+            {% for i in  productname %}
+            <div class="Food-card">
+                <img src="/media/{{i.productImg}}" alt="">
+                <div class="food-title">
+                    <h1>{{i.productName}}</h1>
+                </div>
+                <div class="desc-food">
+                    <p>{{i.productDesc}}</p>
+                </div>
+                <div class="price">
+                    </i></span> <span>&#8377 {{i.price}}</span>
+                    <span><button data-product={{i.id}} data-action="add" class=" fa-solid fa-circle-plus icon update-cart"></button></span>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+        
+    </div>
+    
+</section>
 
-{% endfor %}
+
+
 
 {% endblock body %}
-
-

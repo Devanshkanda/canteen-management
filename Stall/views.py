@@ -134,5 +134,6 @@ def processOrder(request):
     return JsonResponse ('Payment Complete' ,safe=False)
 
 def orderPlaced(request):
+    
     return render(request,'stall/orderplaced.html')
 

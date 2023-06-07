@@ -70,7 +70,7 @@ class DeliveryInfo(models.Model):
     amount=models.IntegerField(default=0)
     
     def __str__(self):
-        return str(self.ClassNo)  + " " + str(self.Phone)
+        return "class no: "+str(self.ClassNo)  + "Phone-no: " + str(self.Phone) + " order :  " + str(self.order)
     
 
     

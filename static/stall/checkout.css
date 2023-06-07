@@ -5,13 +5,18 @@ hr{
 }
 
 .heading{
-    color: white;
+    color: black;
     font-family: 'Playfair', serif;
     font-weight: normal; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .main{
     display: flex;
+    margin-top: 20px;
 }
 
 .right {
@@ -49,11 +54,11 @@ hr{
 }
 
 .left input{
-    width: 200px;
+    width: 250px;
     height: 30px;
     margin: 7px;
     border: 3px solid black;
-    padding: 5px;
+    padding: 0px;
     text-align: center;
     border-radius: 20px;
 }
@@ -65,14 +70,24 @@ hr{
     padding: 20px;
 }
 .product .order-image{
-    width: 80px;
-    height:80px
+    width: 50px;
+    height:50px
 }
+
+.product .order-name,
+.product .order-price,
+.product .order-quantity{
+    font-size: 1.4rem;
+
+}
+.total{
+    font-size: 1.7rem;
+}
+
 
 .btn-con{
     position: absolute;
     bottom: 20%;
-    padding: 10px;
     width: 20rem;
     background-color: #E06469;
     border: none;
@@ -94,6 +109,21 @@ hr{
     cursor: pointer;
 }
 
+
+
+
+.Payment-control{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border: 5px solid white;
+    margin: 50px auto 20px auto;
+    height: 150px;
+    width: 50%;
+
+}
 
 .hidden{
     display: none;

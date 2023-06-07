@@ -1,26 +1,33 @@
-{% extends 'index.html' %}
-{% block title %}OrderPlaced{% endblock title %}
-
-{% block body %}
-
-<div class="op-main">
-    <div class="content">
-        <h1 style="color: black;">Order Placed!!
-        </h1>
-        <h3>Your order has been successfully placed. It will be delivered to you soon.</h3>
-        <div class="images">
-            <div class="boy"><img src="/static/order-placed/deliv-boy.JPG" alt=""></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/stall/orderplaced.css">
+</head>
+<body>
+    <div class="op-main">
+        <div class="content">
+            <h1 style="color: black;">Order Placed!!
+            </h1>
+            <h3>Your order has been successfully placed. It will be delivered to you soon.</h3>
+            <div class="images">
+                <div class="boy"><img src="/static/order-placed/deliv-boy.png" alt=""></div>
+            </div>
+            <div class="last">
+               <a href="/"> <button class="back" role="button">Back to Home</button></a>
+            </div>
+            
         </div>
-        <div class="last">
-            <h2>Order Id:-  </h2>
-           <a href="/"> <button class="back" role="button">Back to Home</button></a>
-        </div>
-        
     </div>
-</div>
+</body>
+</html>
 
 
 
 
 
-  {% endblock body %}
+
+
+
