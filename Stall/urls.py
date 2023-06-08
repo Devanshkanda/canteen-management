@@ -9,4 +9,6 @@ urlpatterns = [
     path('checkout/',views.checkout,name='checkout'),
     path('processOrder/', views.processOrder, name='processOrder'),
     path('orderPlaced/', views.orderPlaced, name='orderPlaced'),
+    path('All_orders/', views.All_orders, name='All_orders'),
+
 ]

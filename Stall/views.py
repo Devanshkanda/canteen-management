@@ -137,3 +137,15 @@ def orderPlaced(request):
     
     return render(request,'stall/orderplaced.html')
 
+
+def All_orders(request):
+    data = cartData(request)
+    items = data['items']
+    order = data['order']
+    cartItems=data['cartItems']
+    order_info=DeliveryInfo.objects.all()
+    context={'items' :items ,'order' : order,'cartItems':cartItems,'order_info':order_info}
+    return render(request,'stall/previous_orders.html',context)
+
+
+

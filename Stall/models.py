@@ -61,6 +61,13 @@ class OrderItem(models.Model):
         total = self.product.price * self.quantity
         return total
     
+
+STATUS_CHOICES = (
+    ("Preparing", "Preparing"),
+    ("Out for Delivery", "Out for Delivery"),
+    ("Delivered", "Delivered"),
+)
+    
 class DeliveryInfo(models.Model):
     customer=models.ForeignKey(User, on_delete=models.SET_NULL ,null=True)
     order =models.ForeignKey(Order,on_delete=models.SET_NULL,null=True)
@@ -68,10 +75,13 @@ class DeliveryInfo(models.Model):
     ClassNo=models.IntegerField(default='')
     Phone=models.IntegerField(default='')
     amount=models.IntegerField(default=0)
+    status= models.CharField(
+        max_length = 20,
+        choices = STATUS_CHOICES,
+        default = 'Preparing'
+        )
     
     def __str__(self):
         return "class no: "+str(self.ClassNo)  + "Phone-no: " + str(self.Phone) + " order :  " + str(self.order)
-    
-
     
 

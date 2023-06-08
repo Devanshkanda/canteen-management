@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+{% block title %}Prevous Orders{% endblock title %}
+
+{% block body %}
+
+<div class="Menu-heading">
+    <h1>Previous Orders</h1>
+</div>
+
+<section class="prev-order">
+    <table>
+        <tr>
+          <th>Order-Id</th>
+          <th>Transaction-Id</th>
+          <th>Customer Name</th>
+          <th>Class Number</th>
+          <th>price</th>
+          <th>Status</th>
+        </tr>
+        {% for index in order_info %}
+        {% if request.user == index.customer %} 
+        <tr>
+          <td>{{index.id}}</td>
+          <td>{{index.order.transactionId}}</td>
+          <td>{{index.customer}}</td>
+          <td>{{index.ClassNo}}</td>
+          <td>{{index.amount}}</td>
+          <td>{{index.status}}</td>
+        </tr>
+        {% endif %} 
+        {% endfor %}
+      </table>
+      
+    
+</section>
+
+
+
+
+  {% endblock body %}
