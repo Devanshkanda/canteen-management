@@ -21,7 +21,7 @@ hr{
 
 .right {
     border: 5px solid white;
-    height: 600px;
+    height: auto;
     width: 50%;
     margin-right: 50px;
     border-radius: 30px;
