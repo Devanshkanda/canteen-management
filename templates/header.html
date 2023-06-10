@@ -1,87 +1,97 @@
 <header>
-    <div class="navbar">
-    <div class="logo"><a href="/" class="heading_text">Delicious Food</a></div>
+  <div class="navbar">
+    <div class="logo"><a href="/" class="heading_text">IITM Cafeteria</a></div>
 
     <ul class="links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/stall">Stalls</a></li>
-        <li><a href="/cart"><i class="fa-solid fa-cart-shopping cart" ><span> {{order.get_cart_items}}</span>
-        </i></a></li>
-        <li><a href="/contact">Contact</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/stall">Stalls</a></li>
+      <li>
+        <a href="/cart"
+          ><i class="fa-solid fa-cart-shopping cart"
+            ><span> {{order.get_cart_items}}</span>
+          </i></a
+        >
+      </li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/#about">About Us</a></li>
     </ul>
     <div class="searchFun">
       <form action="/search/" class="search" id="search-bar">
-        <input type="search" placeholder="Search Dishes " name="search" class="search__input">
+        <input
+          type="search"
+          placeholder="Search Dishes "
+          name="search"
+          class="search__input"
+        />
 
         <div class="search__button" id="search-button">
           <i class="fa-solid fa-magnifying-glass search__icon"></i>
           <i class="fa-solid fa-circle-xmark search__close"></i>
-       
-      </div>
-    </form>
+        </div>
+      </form>
     </div>
     {% if user.is_authenticated %}
     <div class="dropdown">
-        <button class="dropbtn">Welcome! {{request.user}}</button>
-        <div class="dropdown-content">
-          <a href="/All_orders">Prevous Orders</a>
-          <a href="/logout">Logout</a>
-
-        </div>
+      <button class="dropbtn">Welcome! {{request.user}}</button>
+      <div class="dropdown-content">
+        <a href="/logout">Logout</a>
       </div>
-      {% else %}
+    </div>
+    {% else %}
     <div class="btns">
-    <a href="/login" class="login_btn">Login</a>
+      <a href="/login" class="login_btn">Login</a>
     </div>
     {% endif %}
-    
-    <div class="toggle_btn">
-        <i class="fa-solid fa-bars"></i>
-    </div>
-    
-</div>
 
-<div class="dropdown_menu">
-        <li><a href="/">Home</a></li>
-        <li><a href="/stall">Stalls</a></li>
-        <li><a href="/cart"><i class="fa-solid fa-cart-shopping cart" ><span> {{order.get_cart_items}}</span></i></a></li>
-        <li><a href="/contact">Contact</a></li>
-        {% if user.is_authenticated %}
-        <li><div class="dropdown">
-            <button class="dropbtn">Welcome! {{request.user}}</button>
-            <div class="dropdown-content">
-              <a href="/All_orders">Prevous Orders</a>
-              <a href="/logout">Logout</a>
-            </div>
-          </div></li>
-          {% else %}
-        <li><a href="/login" class="login_btn">Login</a></li>
-        {% endif %}
-</div>
+    <div class="toggle_btn">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </div>
+
+  <div class="dropdown_menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/stall">Stalls</a></li>
+    <li>
+      <a href="/cart"
+        ><i class="fa-solid fa-cart-shopping cart"
+          ><span> {{order.get_cart_items}}</span></i
+        ></a
+      >
+    </li>
+    <li><a href="/contact">Contact</a></li>
+    {% if user.is_authenticated %}
+    <li>
+      <div class="dropdown">
+        <button class="dropbtn">Welcome! {{request.user}}</button>
+        <div class="dropdown-content">
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li><a href="/login" class="login_btn">Login</a></li>
+    {% endif %}
+  </div>
 </header>
 
-
 <script>
-    const togglebtn = document.querySelector('.toggle_btn')
-    const togglebtnIcon = document.querySelector('.toggle_btn i')
-    const dropdownmenu = document.querySelector('.dropdown_menu')
-    togglebtn.onclick = function(){
-        dropdownmenu.classList.toggle ('open')
-      const isOpen = dropdownmenu.classList.contains ('open')
-      togglebtnIcon.classList = isOpen
-    ? 'fa-solid fa-xmark'
-       :'fa-solid fa-bars'
-    }
+  const togglebtn = document.querySelector(".toggle_btn");
+  const togglebtnIcon = document.querySelector(".toggle_btn i");
+  const dropdownmenu = document.querySelector(".dropdown_menu");
+  togglebtn.onclick = function () {
+    dropdownmenu.classList.toggle("open");
+    const isOpen = dropdownmenu.classList.contains("open");
+    togglebtnIcon.classList = isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+  };
 
+  const toggleSearch = (search, button) => {
+    const searchBar = document.getElementById(search),
+      searchButton = document.getElementById(button);
 
-    const toggleSearch = (search, button) =>{
-      const searchBar = document.getElementById(search),
-            searchButton = document.getElementById(button)
-   
-      searchButton.addEventListener('click', () =>{
-          // We add the show-search class, so that the search bar expands
-          searchBar.classList.toggle('show-search')
-      })
-   }
-   toggleSearch('search-bar', 'search-button')
+    searchButton.addEventListener("click", () => {
+      // We add the show-search class, so that the search bar expands
+      searchBar.classList.toggle("show-search");
+    });
+  };
+  toggleSearch("search-bar", "search-button");
 </script>

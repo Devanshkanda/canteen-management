@@ -1,3 +1,7 @@
+.heading-container {
+	margin: 0 10px 0 10px;
+}
+
 .wrapper {
 	max-width: 1000px;
 	margin: 0 auto;
@@ -145,15 +149,17 @@
 
 /* before login  */
 .Shopping-container{
-	border: 2px solid black;
+	border: 4px solid white;
 	border-radius: 20px ;
-	margin: 60px auto;
-	width: 660px;
+	margin: 80px auto;
+	width: 700px;
 	height: 150px;
 	display: flex;
 	justify-content: center;
 	flex-direction:column ;
-	background-color: #ffeae0;
+	background-color: orangered;
+	color: white;
+	box-shadow: 5px 10px 10px rgb(167, 47, 4);
 }
 .heading-container{
 	display: flex;
@@ -162,11 +168,12 @@
 .shoping-btn-container{
 	display: flex;
 	justify-content: center;
-
 }
 .btn-cart-login{
 padding: 10px 23px;
-background-color: #ff511c;
+background-color: #fff;
+font-weight: 700;
+margin-top: 20px;
 color: black;
 border-radius: 5px;
 border:none;

@@ -1,67 +1,110 @@
-{% extends 'index.html' %}
-
-{% block title %}Login & Signup{% endblock title %}
-
+{% extends 'index.html' %} {% block title %}Login & Signup{% endblock title %}
 {% block body %}
 
-
-<div id='login-form'  class='login-page'>
-    <div class="form-box">
-        <div class='button-box'>
-            <div id='btn'></div>
-            <button type='button'onclick='login()'class='toggle-btn'>Log In</button>
-            <button type='button'onclick='register()'class='toggle-btn'>Register</button>
-        </div>
-        <form id='login' method="POST" action="/login/" class='input-group-login'>
-            {% csrf_token %}
-            <input type='text'class='input-field' name="loginusername" placeholder='Username' required >
-           <input type='password'class='input-field' name="loginpassword" placeholder='Enter Password' required>
-           <button type='submit'class='submit-btn'>Log in</button>
- </form>
-
- <form id='register'  method="POST" action="/signup/" class='input-group-register'>
-    {% csrf_token %}
-     <input type='text'class='input-field'name="fname" placeholder='First Name' required>
-     <input type='text'class='input-field' name="lname" placeholder='Last Name ' required>
-     <input type='text'class='input-field' name="uname" placeholder=' UserName ' required>
-     <input type='email'class='input-field' name="email" placeholder='Email Id' required>
-     <input type='password'class='input-field' name="pass1" placeholder='Enter Password' required>
-     <input type='password'class='input-field' name="pass2" placeholder='Confirm Password'  required>
-            <button type='submit'class='submit-btn'>Register</button>
-     </form>
+<div id="login-form" class="login-page">
+  <div class="form-box">
+    <div class="button-box">
+      <div id="btn"></div>
+      <button type="button" onclick="login()" class="toggle-btn">Log In</button>
+      <button type="button" onclick="register()" class="toggle-btn">
+        Register
+      </button>
     </div>
+    <form id="login" method="POST" action="/login/" class="input-group-login">
+      {% csrf_token %}
+      <input
+        type="text"
+        class="input-field"
+        name="loginusername"
+        placeholder="Username"
+        required
+      />
+      <input
+        type="password"
+        class="input-field"
+        name="loginpassword"
+        placeholder="Enter Password"
+        required
+      />
+      <button type="submit" class="submit-btn">Log in</button>
+    </form>
+
+    <form
+      id="register"
+      method="POST"
+      action="/signup/"
+      class="input-group-register"
+    >
+      {% csrf_token %}
+      <input
+        type="text"
+        class="input-field"
+        name="fname"
+        placeholder="First Name"
+        required
+      />
+      <input
+        type="text"
+        class="input-field"
+        name="lname"
+        placeholder="Last Name "
+        required
+      />
+      <input
+        type="text"
+        class="input-field"
+        name="uname"
+        placeholder=" UserName "
+        required
+      />
+      <input
+        type="email"
+        class="input-field"
+        name="email"
+        placeholder="Email Id"
+        required
+      />
+      <input
+        type="password"
+        class="input-field"
+        name="pass1"
+        placeholder="Enter Password"
+        required
+      />
+      <input
+        type="password"
+        class="input-field"
+        name="pass2"
+        placeholder="Confirm Password"
+        required
+      />
+      <button type="submit" class="submit-btn">Register</button>
+    </form>
+  </div>
 </div>
 
-{% endblock body %}
-
-
-
-{% block script %}
+{% endblock body %} {% block script %}
 <script>
-    var x=document.getElementById('login');
-    var y=document.getElementById('register');
-    var z=document.getElementById('btn');
-    function register()
-    {
-        x.style.left='-400px';
-        y.style.left='50px';
-        z.style.left='110px';
-    }
-    function login()
-    {
-        x.style.left='50px';
-        y.style.left='450px';
-        z.style.left='0px';
-    }
+  var x = document.getElementById("login");
+  var y = document.getElementById("register");
+  var z = document.getElementById("btn");
+  function register() {
+    x.style.left = "-400px";
+    y.style.left = "50px";
+    z.style.left = "110px";
+  }
+  function login() {
+    x.style.left = "50px";
+    y.style.left = "450px";
+    z.style.left = "0px";
+  }
 </script>
 <script>
-    var modal = document.getElementById('login-form');
-    window.onclick = function(event) 
-    {
-        if (event.target == modal) 
-        {
-            modal.style.display = "none";
-        }
+  var modal = document.getElementById("login-form");
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
     }
+  };
 </script>
 {% endblock script %}

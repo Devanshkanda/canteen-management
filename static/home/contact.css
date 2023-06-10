@@ -27,7 +27,7 @@
 
 
 .contact-body {
-    margin: 10px 0px;
+    margin: 50px 0px;
     text-align: center;
     color: #ff511c;
 }
@@ -57,7 +57,7 @@
 }
 
 .contact-boxes {
-    width: 150px;
+    width: 200px;
     height: 160px;
     border: 5px solid #ff511c;
     background-color: white;
@@ -66,7 +66,7 @@
 
 .contact-boxes i {
     font-size: 2rem;
-    padding-bottom: 1rem;
+    padding: 0.8rem;
     color: #ff511c;
 }
 
@@ -75,6 +75,12 @@
     font-size: larger;
     font-weight: 700;
     color:  #ac4603;
+}
+
+.contact-img{
+    height: 400px;
+    width: 484px;
+    margin-left: -90px;
 }
 
 .contact-form{
@@ -99,6 +105,14 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     outline: 0;
+}
+
+.form input {
+    background-color: #f38455;
+    height: 50px;
+}
+.form textarea {
+    background-color: #f38455;
 }
 
 .send {
