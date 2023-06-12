@@ -34,7 +34,9 @@
     <div class="dropdown">
       <button class="dropbtn">Welcome! {{request.user}}</button>
       <div class="dropdown-content">
+        <a href="/All_orders">Previous Order</a>
         <a href="/logout">Logout</a>
+
       </div>
     </div>
     {% else %}
@@ -64,7 +66,9 @@
       <div class="dropdown">
         <button class="dropbtn">Welcome! {{request.user}}</button>
         <div class="dropdown-content">
+        <a href="All_orders/">Previous Order</a>
           <a href="/logout">Logout</a>
+          
         </div>
       </div>
     </li>
