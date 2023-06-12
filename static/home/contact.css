@@ -78,8 +78,8 @@
 }
 
 .contact-img{
-    height: 400px;
-    width: 484px;
+    height: 361px;
+    width: 414px;
     margin-left: -90px;
 }
 
@@ -109,6 +109,7 @@
 
 .form input {
     background-color: #f38455;
+    color: black;
     height: 50px;
 }
 .form textarea {
