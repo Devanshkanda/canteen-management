@@ -74,9 +74,9 @@
     padding: 40px 0 10px;
 }
 
-.Food-card-list .Food-card .food-title h1{
+.Food-card-list .Food-card .food-title h1,
+.Food-card-list .Food-card .food-title h5{
     text-align: center;
-    font-weight: bold;
     font-size: 16px;
     font-family: sans-serif;
 }
